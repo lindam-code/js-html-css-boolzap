@@ -29,9 +29,10 @@
   padding: 20px 0;
 }
 .container {
-  width: 70%;
+  width: 80%;
   height: 98%;
   margin: auto;
+  display: flex;
 }
 .sidebar {
   width: 40%;
@@ -40,16 +41,31 @@
 .main {
   width: 60%;
   height: 100%;
+  background-color: red;
+}
+.header {
+  background-color: #eaeaea;
+  height: 70px;
+  width: 100%;
 }
 /* FINE STILI GENERALI */
 
+/* SIDEBAR */
+
+/* FINE SIDEBAR */
+
 /* MEDIAQUERY */
 @media screen and (max-width: 900px) {
-  .sidebar {
+  .container {
+    flex-wrap: nowrap;
+  }
+
+
+  /* .sidebar {
     width: 250px;
   }
   .main {
     width: 400px;
-  }
+  } */
 }
 /* FINE MEDIAQUERY */
