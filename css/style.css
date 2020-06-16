@@ -51,12 +51,26 @@ img {
 /* FINE STILI GENERALI */
 
 /* ELEMENTI RIPETUTI */
+/* Header */
 .header {
   background-color: #eaeaea;
   height: 70px;
   width: 100%;
   padding: 10px;
+  display: flex;
+  color: #b1b1b1;
+  justify-content: space-between;
 }
+.header .nav ul {
+  display: flex;
+  line-height: 50px;
+}
+.header .nav li {
+  list-style-type: none;
+  font-size: 20px;
+  margin-left: 20px;
+}
+/* Fine header */
 .border-left {
   border-left: 1px solid #b1b1b1;
 }
@@ -66,6 +80,21 @@ img {
 .avatar img {
   border-radius: 50%;
 }
+
+/* Contatti */
+.contact {
+  display: flex;
+}
+.contact-name {
+  color: black;
+}
+.contact-info {
+  padding-left: 10px;
+}
+.contact-info p {
+  margin-top: 5px;
+}
+/* Fine contatti */
 /* FINE ELEMENTI RIPETUTI */
 
 /* SIDEBAR */
