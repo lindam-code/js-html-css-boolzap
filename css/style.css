@@ -45,15 +45,28 @@
   height: 100%;
   background-color: red;
 }
+img {
+  height: 100%;
+}
+/* FINE STILI GENERALI */
+
+/* ELEMENTI RIPETUTI */
 .header {
   background-color: #eaeaea;
   height: 70px;
   width: 100%;
+  padding: 10px;
 }
 .border-left {
   border-left: 1px solid #b1b1b1;
 }
-/* FINE STILI GENERALI */
+.avatar {
+  height: 100%;
+}
+.avatar img {
+  border-radius: 50%;
+}
+/* FINE ELEMENTI RIPETUTI */
 
 /* SIDEBAR */
 .sidebar .notice {
