@@ -1,0 +1,55 @@
+/* RESET */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+/* FINE RESET */
+
+/* Debug */
+.debug1 {
+  background-color: #6b5b95;
+}
+.debug2 {
+  background-color: #feb236;
+}
+.debug 3 {
+  background: #d64161;
+}
+.debug 4 {
+  background-color: #ff7b25;
+}
+/* Fine Debug */
+
+/* STILI GENERALI */
+.main-wrapper {
+  width: 100%;
+  height: 100vh;
+  background-color: #d9dbd4;
+  padding: 20px 0;
+}
+.container {
+  width: 70%;
+  height: 98%;
+  margin: auto;
+}
+.sidebar {
+  width: 40%;
+  height: 100%;
+}
+.main {
+  width: 60%;
+  height: 100%;
+}
+/* FINE STILI GENERALI */
+
+/* MEDIAQUERY */
+@media screen and (max-width: 900px) {
+  .sidebar {
+    width: 250px;
+  }
+  .main {
+    width: 400px;
+  }
+}
+/* FINE MEDIAQUERY */
