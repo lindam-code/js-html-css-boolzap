@@ -154,6 +154,41 @@ img {
   border: 0;
   padding-left: 5px;
 }
+
+/* Inizio spazio chat */
+.main .chat-container {
+  width: 80%;
+  margin: auto;
+  height: 100%;
+}
+.template {
+  /* display: none; */
+}
+.chat-container .single-message {
+  padding: 15px;
+  border-radius: 5px;
+  width: 40%;
+  margin: 25px auto;
+  position: relative;
+}
+.single-message .time {
+  position: absolute;
+  font-size: 15px;
+  bottom: 2px;
+  right: 2px;
+  color: #b1b1b1;
+}
+.chat-container .single-message.received-message {
+  background-color: white;
+  margin-left: 0;
+  margin-right: auto;
+}
+.chat-container .single-message.sent-message {
+  background-color: #d5f9ba;
+  margin-left: auto;
+  margin-right: 0;
+}
+/* Fine spazio chat */
 /* FINE MAIN */
 
 /* Inizio custom scrollbar */
