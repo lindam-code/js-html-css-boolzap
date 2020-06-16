@@ -30,9 +30,11 @@
 }
 .container {
   width: 80%;
+  min-width: 900px; /* Sotto i 900px non è più responsive */
   height: 98%;
   margin: auto;
   display: flex;
+
 }
 .sidebar {
   width: 40%;
@@ -48,24 +50,51 @@
   height: 70px;
   width: 100%;
 }
+.border-left {
+  border-left: 1px solid #b1b1b1;
+}
 /* FINE STILI GENERALI */
 
 /* SIDEBAR */
-
+.sidebar .notice {
+  background-color: #8edafc;
+  height: 80px;
+  width: 100%;
+}
+.sidebar .search {
+  background-color: #fafafa;
+  height: 50px;
+  width: 100%;
+}
+.sidebar .contact-list {
+  height: calc(100% - 200px);
+  overflow-y: scroll;
+}
 /* FINE SIDEBAR */
 
-/* MEDIAQUERY */
-@media screen and (max-width: 900px) {
-  .container {
-    flex-wrap: nowrap;
-  }
-
-
-  /* .sidebar {
-    width: 250px;
-  }
-  .main {
-    width: 400px;
-  } */
+/* MAIN */
+.main .chat-wrapper {
+  height: calc(100% - 140px);
+  overflow-y: scroll;
 }
-/* FINE MEDIAQUERY */
+.main .type-message {
+  background-color: #f3eeea;
+  height: 70px;
+  width: 100%;
+}
+/* FINE MAIN */
+
+/* Inizio custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #fff;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #b1b1b1;
+  border-radius: 10px;
+}
+/* Fine custom scrollbar */
