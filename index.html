@@ -105,20 +105,25 @@
           <!-- Inizio spazio per messaggi chat -->
           <div class="chat-wrapper">
             <div class="chat-container">
+              <div class="single-message received-message">
+                <p>Ciao Michele!!</p>
+                <div class="time">09.15</div>
+              </div>
+
+              <div class="single-message sent-message">
+                <p>Ciao come stai?</p>
+                <div class="time">09.15</div>
+              </div>
+
+
+              <!-- Inizio template per i messagi -->
               <div class="template">
-                <div class="single-message received-message">
-                  <p>Ciao come stai?</p>
+                <div class="single-message">
+                  <p></p>
                   <div class="time">09.15</div>
                 </div>
               </div>
-
-              <div class="template">
-                <div class="single-message sent-message">
-                  <p>Ciao come stai?</p>
-                  <div class="time">09.35</div>
-                </div>
-              </div>
-
+              <!-- Fine template per i messagi -->
 
             </div>
 
@@ -130,7 +135,7 @@
           <div class="type-message border-left">
             <i class="far fa-smile"></i>
             <input type="text" class="message" placeholder="Scrivi un messaggio">
-            <i class="fas fa-paper-plane"></i>
+            <i class="fas fa-paper-plane" id="submit-message"></i>
           </div>
           <!-- Inizio text area per scrivere messaggio -->
         </div>

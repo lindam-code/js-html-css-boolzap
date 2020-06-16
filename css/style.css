@@ -148,6 +148,9 @@ img {
   font-size: 25px;
   line-height: 50px;
 }
+#submit-message {
+  cursor: pointer;
+}
 .main .type-message .message {
   border-radius: 5px;
   width: 85%;
@@ -162,7 +165,7 @@ img {
   height: 100%;
 }
 .template {
-  /* display: none; */
+  display: none;
 }
 .chat-container .single-message {
   padding: 15px;
