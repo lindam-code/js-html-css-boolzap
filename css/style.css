@@ -4,6 +4,9 @@
   margin: 0;
   box-sizing: border-box;
 }
+img {
+  height: 100%;
+}
 /* FINE RESET */
 
 /* Debug */
@@ -21,32 +24,32 @@
 }
 /* Fine Debug */
 
-/* STILI GENERALI */
-.main-wrapper {
+/* LAYOUT */
+.app-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   height: 100vh;
   background: linear-gradient(180deg, #009688 130px, #d8dbd5 130px);
-  padding: 20px 0;
+  font-family: 'Lato', sans-serif;
 }
-.main-container {
+.app-container {
   width: 80%;
   min-width: 900px; /* Sotto i 900px non è più responsive */
-  height: 98%;
-  margin: auto;
-  display: flex;
+  height: 95%;
 }
 .sidebar {
+  float: left;
   width: 40%;
   height: 100%;
 }
 .main {
+  float: left;
   width: 60%;
   height: 100%;
 }
-img {
-  height: 100%;
-}
-/* FINE STILI GENERALI */
+/* FINE LAYOUT */
 
 /* ELEMENTI RIPETUTI */
 /* Header */
@@ -56,60 +59,40 @@ img {
   width: 100%;
   padding: 10px;
   display: flex;
-  color: #b1b1b1;
   justify-content: space-between;
-}
-.header .nav ul {
-  display: flex;
-  line-height: 50px;
+  align-items: center;
 }
 .header .nav li {
+  display: inline-block;
   list-style-type: none;
   font-size: 20px;
   margin-left: 20px;
+  color: #b1b1b1;
 }
-/* Fine header */
 .border-left {
   border-left: 1px solid #b1b1b1;
 }
+/* Fine header */
+
+/* Avatar */
 .avatar {
-  height: 100%;
+  width: 50px;
+  height: 50px;
 }
 .avatar img {
   border-radius: 50%;
 }
+/* Fine avatar */
 
-/* Stile contatto in generale */
-.contact {
-  display: flex;
-}
-.contact-name {
-  color: black;
-}
+/* Contact info */
 .contact-info {
+  flex-grow: 1;
   padding-left: 10px;
 }
-.contact-info p {
-  margin-top: 5px;
+.contact-info span {
   color: #b1b1b1;
 }
-/* Stile contatto nella lista dei contatti */
-.contact-list .contact {
-  background-color: #fff;
-  border: 1px solid #c1c4c5;
-  height: 70px;
-  padding: 5px;
-}
-.contact-list ul li {
-  position: relative;
-}
-.contact .time {
-  color: #b1b1b1;
-  position: absolute;
-  top: 15px;
-  right: 20px;
-}
-/* Fine contatti */
+/* Fine contact info */
 /* FINE ELEMENTI RIPETUTI */
 
 /* SIDEBAR */
@@ -142,23 +125,29 @@ img {
 
 /* Sidebar sezione ricerca contatto */
 .sidebar .search {
-  background-color: #fafafa;
+  background-color: #eaeaea;
   height: 50px;
   width: 100%;
   padding: 5px;
-  line-height: 40px;
 }
 .sidebar .search-container {
-  border: 1px solid #b1b1b1;
-  padding-left: 5px;
+  height: 100%;
+  background-color: white;
+}
+.sidebar label {
+  display: inline-block;
+  background-color: white;
+  text-align: center;
+  width: 60px;
 }
 .sidebar .search-container i {
   color: #b1b1b1;
   margin-right: 5px;
 }
 .sidebar .search .search-contact {
-  width: 80%;
   border: 0;
+  height: 100%;
+  width: calc(100% - 70px);
 }
 /* Fine sidebar sezione ricerca contatto */
 
@@ -167,15 +156,63 @@ img {
   height: calc(100% - 200px);
   overflow-y: scroll;
 }
+.sidebar .contact-list .contact-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  height: 80px;
+  border-bottom: 1px solid #b1b1b1;
+}
+.contact-time {
+  color: #b1b1b1;
+}
 /* Fine sidebar contact list */
 /* FINE SIDEBAR */
 
 /* MAIN */
+/* Inizio spazio chat */
 .main .chat-wrapper {
   height: calc(100% - 140px);
   overflow-y: scroll;
   background-image: url("../img/mine.jpg");
 }
+.main .chat-container {
+  width: 80%;
+  margin: auto;
+  height: 100%;
+}
+.chat-container .single-message {
+  display: inline-block;
+  padding: 15px;
+  border-radius: 5px;
+  min-width: 150px;
+  max-width: 80%;
+  position: relative;
+  clear: both;
+  margin: 25px 0;
+}
+.single-message .time-message {
+  position: absolute;
+  font-size: 13px;
+  bottom: 2px;
+  right: 2px;
+  color: #b1b1b1;
+}
+.chat-container .single-message.received-message {
+  background-color: white;
+  float: left;
+}
+.chat-container .single-message.sent-message {
+  background-color: #d5f9ba;
+  float: right;
+}
+.template {
+  display: none;
+}
+/* Fine spazio chat */
+
+/* Inizio sezione type message */
 .main .type-message {
   background-color: #f3eeea;
   height: 70px;
@@ -183,56 +220,24 @@ img {
   color: #b1b1b1;
   display: flex;
   justify-content: space-between;
-  padding: 10px 25px;
+  align-items: center;
+  padding: 10px;
 }
 .main .type-message i {
   font-size: 25px;
-  line-height: 50px;
+  width: 40px;
+  text-align: center;
 }
 #submit-message {
   cursor: pointer;
 }
-.main .type-message .message {
+.main .type-message .message-input {
   border-radius: 5px;
-  width: 85%;
-  border: 0;
-  padding-left: 5px;
-}
-
-/* Inizio spazio chat */
-.main .chat-container {
-  width: 80%;
-  margin: auto;
+  flex-grow: 1;
   height: 100%;
+  border: 0;
 }
-.template {
-  display: none;
-}
-.chat-container .single-message {
-  padding: 15px;
-  border-radius: 5px;
-  width: 40%;
-  margin: 25px auto;
-  position: relative;
-}
-.single-message .time {
-  position: absolute;
-  font-size: 15px;
-  bottom: 2px;
-  right: 2px;
-  color: #b1b1b1;
-}
-.chat-container .single-message.received-message {
-  background-color: white;
-  margin-left: 0;
-  margin-right: auto;
-}
-.chat-container .single-message.sent-message {
-  background-color: #d5f9ba;
-  margin-left: auto;
-  margin-right: 0;
-}
-/* Fine spazio chat */
+/* Inizio sezione type message */
 /* FINE MAIN */
 
 /* Inizio custom scrollbar */

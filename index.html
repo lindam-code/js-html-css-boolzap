@@ -4,14 +4,15 @@
     <meta charset="utf-8">
     <title>Boolzapp</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
   </head>
   <body>
     <!-- Inizio sfondo -->
-    <div class="main-wrapper">
-      <!-- Inizio contenitore generale -->
-      <div class="main-container">
+    <div class="app-wrapper">
+      <!-- Inizio contenitore app -->
+      <div class="app-container">
         <!-- Inizio sidebar -->
         <div class="sidebar">
 
@@ -45,7 +46,7 @@
           <!-- Inizio sezione ricerca contatto -->
           <div class="search">
             <div class="search-container">
-              <i class="fas fa-search"></i>
+              <label><i class="fas fa-search"></i></label>
               <input type="text" class="search-contact" id="search-contact" placeholder="cerca o inizia una nuova chat">
             </div>
           </div>
@@ -53,106 +54,24 @@
 
           <!-- Inizio lista dei contatti -->
           <div class="contact-list">
-            <ul>
-              <li>
-                <div class="contact">
-                  <div class="avatar">
-                    <img src="img/avatar_1.jpg" alt="avatar">
-                  </div>
-                  <div class="contact-info">
-                    <h4 class="contact-name">Michele</h4>
-                    <p class="time-access">Non poteva essere altrimenti</p>
-                    <div class="time">17.53</div>
-                  </div>
-                </div>
-              </li>
-              <li>
-                <div class="contact">
-                  <div class="avatar">
-                    <img src="img/avatar_2.jpg" alt="avatar">
-                  </div>
-                  <div class="contact-info">
-                    <h4 class="contact-name">Fabio</h4>
-                    <p class="time-access">Non poteva essere altrimenti</p>
-                    <div class="time">17.53</div>
-                  </div>
-                </div>
-              </li>
-              <li>
-                <div class="contact">
-                  <div class="avatar">
-                    <img src="img/avatar_3.jpg" alt="avatar">
-                  </div>
-                  <div class="contact-info">
-                    <h4 class="contact-name">Samuele</h4>
-                    <p class="time-access">Non poteva essere altrimenti</p>
-                    <div class="time">17.53</div>
-                  </div>
-                </div>
-              </li>
-              <li>
-                <div class="contact">
-                  <div class="avatar">
-                    <img src="img/avatar_4.jpg" alt="avatar">
-                  </div>
-                  <div class="contact-info">
-                    <h4 class="contact-name">Alessandro B.</h4>
-                    <p class="time-access">Non poteva essere altrimenti</p>
-                    <div class="time">17.53</div>
-                  </div>
-                </div>
-              </li>
-              <li>
-                <div class="contact">
-                  <div class="avatar">
-                    <img src="img/avatar_5.jpg" alt="avatar">
-                  </div>
-                  <div class="contact-info">
-                    <h4 class="contact-name">Alessandro L.</h4>
-                    <p class="time-access">Non poteva essere altrimenti</p>
-                    <div class="time">17.53</div>
-                  </div>
-                </div>
-              </li>
-              <li>
-                <div class="contact">
-                  <div class="avatar">
-                    <img src="img/avatar_6.jpg" alt="avatar">
-                  </div>
-                  <div class="contact-info">
-                    <h4 class="contact-name">Claudia</h4>
-                    <p class="time-access">Non poteva essere altrimenti</p>
-                    <div class="time">17.53</div>
-                  </div>
-                </div>
-              </li>
-              <li>
-                <div class="contact">
-                  <div class="avatar">
-                    <img src="img/avatar_7.jpg" alt="avatar">
-                  </div>
-                  <div class="contact-info">
-                    <h4 class="contact-name">Davide</h4>
-                    <p class="time-access">Non poteva essere altrimenti</p>
-                    <div class="time">17.53</div>
-                  </div>
-                </div>
-              </li>
-              <li>
-                <div class="contact">
-                  <div class="avatar">
-                    <img src="img/avatar_8.jpg" alt="avatar">
-                  </div>
-                  <div class="contact-info">
-                    <h4 class="contact-name">Luca</h4>
-                    <p class="time-access">Non poteva essere altrimenti</p>
-                    <div class="time">17.53</div>
-                  </div>
-                </div>
-              </li>
-            </ul>
-            <!-- Inizio lista dei contatti -->
+            <div class="contact-item">
+              <div class="avatar">
+                <img src="img/avatar_1.jpg" alt="avatar">
+              </div>
+
+              <div class="contact-info">
+                <h3>Michele</h3>
+                <span>Non poteva essere altrimenti</span>
+              </div>
+
+              <div class="contact-time">
+                17:53
+              </div>
+            </div>
           </div>
+
+          <!-- Inizio lista dei contatti -->
+
         </div>
         <!-- Fine sidebar -->
 
@@ -160,14 +79,13 @@
         <div class="main">
           <!-- Main header -->
           <div class="header border-left">
-            <div class="contact">
-              <div class="avatar">
-                <img src="img/avatar_1.jpg" alt="avatar">
-              </div>
-              <div class="contact-info">
-                <h4 class="contact-name">Michele</h4>
-                <p class="time-access">Ultimo accesso oggi alle 15:40</p>
-              </div>
+            <div class="avatar">
+              <img src="img/avatar_1.jpg" alt="avatar">
+            </div>
+
+            <div class="contact-info">
+              <h3>Michele</h3>
+              <span>Ultimo accesso oggi alle 15:40</span>
             </div>
 
             <div class="nav">
@@ -184,25 +102,14 @@
           <div class="chat-wrapper">
             <div class="chat-container">
               <div class="single-message received-message">
-                <p>Ciao Michele!!</p>
-                <div class="time">09.15</div>
+                <span class="text-message">Ciaooo Michele</span>
+                <span class="time-message">16:00</span>
               </div>
 
               <div class="single-message sent-message">
-                <p>Ciao come stai?</p>
-                <div class="time">09.15</div>
+                <span class="text-message">Ciao</span>
+                <span class="time-message">16:01</span>
               </div>
-
-
-              <!-- Inizio template per i messagi -->
-              <div class="template">
-                <div class="single-message">
-                  <p class="message-text"></p>
-                  <div class="time">09.15</div>
-                </div>
-              </div>
-              <!-- Fine template per i messagi -->
-
             </div>
           </div>
           <!-- Fine spazio per messaggi chat -->
@@ -210,17 +117,27 @@
           <!-- Inizio text area per scrivere messaggio -->
           <div class="type-message border-left">
             <i class="far fa-smile"></i>
-            <input type="text" class="message" id="message-input" placeholder="Scrivi un messaggio">
+            <input type="text" class="message-input" id="message-input" placeholder="Scrivi un messaggio">
             <i class="fas fa-paper-plane" id="submit-message"></i>
           </div>
           <!-- Inizio text area per scrivere messaggio -->
 
         </div>
         <!-- Fine main -->
+
       </div>
-      <!-- Fine contenitore generale -->
+      <!-- Fine contenitore app -->
     </div>
     <!-- Fine sfondo -->
+
+    <!-- Inizio template per i messagi -->
+    <div class="template">
+      <div class="single-message">
+        <span class="text-message"></span>
+        <span class="time-message"></span>
+      </div>
+    </div>
+    <!-- Fine template per i messagi -->
 
     <!-- Collegamento Javascript -->
     <script src="js/script.js"></script>
