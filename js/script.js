@@ -20,6 +20,26 @@ $(document).ready(function(){
     }
   });
 
+  // Ricerca contatti: digitando le lettere mostro
+  // solo i contatti che hanno quelle lettere
+  $('#search-contact').keyup(function(event){
+
+    $('.contact-item').each(function () {
+      var testoCercato = $('#search-contact').val().toLowerCase();
+      console.log(testoCercato);
+      var nomeContattoCorrente = $(this).find('.contact-name').text().toLowerCase();
+      console.log(nomeContattoCorrente);
+
+      if (nomeContattoCorrente.includes(testoCercato)) {
+        $(this).show();
+      } else {
+        $(this).hide();
+      }
+
+    });
+
+  });
+
   // Funzioni
   // Funzione che invia il messaggio dell'utente nella chat
   function sendMessage() {
