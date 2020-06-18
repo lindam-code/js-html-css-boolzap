@@ -22,22 +22,28 @@ $(document).ready(function(){
 
   // Ricerca contatti: digitando le lettere mostro
   // solo i contatti che hanno quelle lettere
-  $('#search-contact').keyup(function(event){
+  // $('#search-contact').keyup(function(event){
+  //
+  //   $('.contact-item').each(function () {
+  //     var testoCercato = $('#search-contact').val().toLowerCase();
+  //     console.log(testoCercato);
+  //     var nomeContattoCorrente = $(this).find('.contact-name').text().toLowerCase();
+  //     console.log(nomeContattoCorrente);
+  //
+  //     if (nomeContattoCorrente.includes(testoCercato)) {
+  //       $(this).show();
+  //     } else {
+  //       $(this).hide();
+  //     }
+  //
+  //   });
 
-    $('.contact-item').each(function () {
-      var testoCercato = $('#search-contact').val().toLowerCase();
-      console.log(testoCercato);
-      var nomeContattoCorrente = $(this).find('.contact-name').text().toLowerCase();
-      console.log(nomeContattoCorrente);
-
-      if (nomeContattoCorrente.includes(testoCercato)) {
-        $(this).show();
-      } else {
-        $(this).hide();
-      }
-
+  // Ricerca contatti con .filter di JQuery.
+  $("#search-contact").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $(".contact-item").filter(function() {
+    $(this).toggle($(this).find('.contact-name').text().toLowerCase().indexOf(value) > -1)
     });
-
   });
 
   // Funzioni
