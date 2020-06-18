@@ -3,7 +3,6 @@ $(document).ready(function(){
   // Aggiungere messaggi alla chat cliccando icona aeroplanino
   $('#submit-message').click(function(){
     sendMessage();
-
   });
 
   // Aggiungere messaggi alla chat cliccando invio
@@ -87,9 +86,7 @@ $(document).ready(function(){
       var currentTime = addZeroToNumber(hours) + ':' + addZeroToNumber(minutes);
       cloneMessage.find('.time-message').text(currentTime);
       // Appende al contenitore della chat che è attiva il messaggio
-      if ( $('.chat-container').hasClass('active') === true) {
-        $('.chat-container').append(cloneMessage);
-      };
+      $('.chat-container.active').append(cloneMessage);
       // Scrollo all'ultimo messaggio inviato
       $('.chat-wrapper').scrollTop($('.chat-wrapper').height());
       // Pulisco l'input
@@ -97,7 +94,7 @@ $(document).ready(function(){
       // Invia una risposta dell'interlocutore dopo un secondo
       setTimeout(function(){
         sendAnswer();
-    }, 1000);
+      }, 1000);
     };
   };
 
@@ -116,7 +113,7 @@ $(document).ready(function(){
     var currentTime = addZeroToNumber(hours) + ':' + addZeroToNumber(minutes);
     cloneMessage.find('.time-message').text(currentTime);
     // Appende al contenitore della chat il messaggio
-    $('.chat-container').append(cloneMessage);
+    $('.chat-container.active').append(cloneMessage);
     // Scrollo all'ultimo messaggio inviato
     $('.chat-wrapper').scrollTop($('.chat-wrapper').height());
   };
