@@ -53,7 +53,7 @@ $(document).ready(function(){
     $(this).siblings().children('.message-action').removeClass('active');
   });
   // Quando clicco sulla freccia, appare e scompare
-  $('.message-arrow').click(function(){
+  $(document).on('click', '.message-arrow', function(){
     $(this).siblings('.message-action').toggleClass('active');
   });
   // Siccome con il mouse enter, la faccio apparire ma rimane visibile
