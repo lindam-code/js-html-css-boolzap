@@ -30,6 +30,7 @@ img {
   justify-content: center;
   align-items: center;
   width: 100%;
+  min-width: 900px;
   height: 100vh;
   background: linear-gradient(180deg, #009688 130px, #d8dbd5 130px);
   font-family: 'Lato', sans-serif;
