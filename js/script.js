@@ -61,6 +61,11 @@ $(document).ready(function(){
     var selettoreChatCorrispondente = '.chat-container[data-chat="'+ valoreAttributoContatto +'"]';
     $('.chat-container').removeClass('active');
     $(selettoreChatCorrispondente).addClass('active');
+    // Mostra nell'header il nome e l'avatar corrispondente
+    var contactName = $(this).find('.contact-name').text();
+    $('.main .header .contact-name').text(contactName);
+    var contactAvatar = $(this).find('.avatar img').attr('src');
+    $('.main .header .avatar img').attr('src', contactAvatar);
   });
 
   // Funzioni
@@ -81,8 +86,10 @@ $(document).ready(function(){
       var minutes = date.getMinutes();
       var currentTime = addZeroToNumber(hours) + ':' + addZeroToNumber(minutes);
       cloneMessage.find('.time-message').text(currentTime);
-      // Appende al contenitore della chat il messaggio
-      $('.chat-container').append(cloneMessage);
+      // Appende al contenitore della chat che è attiva il messaggio
+      if ( $('.chat-container').hasClass('active') === true) {
+        $('.chat-container').append(cloneMessage);
+      };
       // Scrollo all'ultimo messaggio inviato
       $('.chat-wrapper').scrollTop($('.chat-wrapper').height());
       // Pulisco l'input

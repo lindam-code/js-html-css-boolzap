@@ -36,8 +36,7 @@ img {
   font-family: 'Lato', sans-serif;
 }
 .app-container {
-  width: 80%;
-  min-width: 900px; /* Sotto i 900px non è più responsive */
+  width: 90%;
   height: 95%;
 }
 .sidebar {
