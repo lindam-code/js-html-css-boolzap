@@ -61,6 +61,15 @@ $(document).ready(function(){
     $(this).parents('.single-message').remove();
   });
 
+  // Click sul contatto mostra la conversazione del contatto cliccato,
+  // è possibile inserire nuovi messaggi per ogni conversazione
+  $('.contact-item').click(function(){
+    var valoreAttributoContatto = $(this).attr('data-contact');
+    var selettoreChatCorrispondente = '.chat-container[data-chat="'+ valoreAttributoContatto +'"]';
+    $('.chat-container').removeClass('active');
+    $(selettoreChatCorrispondente).addClass('active');
+  });
+
   // Funzioni
   // Funzione che invia il messaggio dell'utente nella chat
   function sendMessage() {

@@ -184,6 +184,10 @@ img {
   width: 80%;
   margin: auto;
   height: 100%;
+  display: none;
+}
+.chat-container.active {
+  display: block;
 }
 .chat-container .single-message {
   display: inline-block;
