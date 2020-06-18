@@ -155,6 +155,7 @@ img {
 .sidebar .contact-list {
   height: calc(100% - 200px);
   overflow-y: scroll;
+  background-color: white;
 }
 .sidebar .contact-list .contact-item {
   display: flex;
