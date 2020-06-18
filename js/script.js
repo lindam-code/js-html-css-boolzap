@@ -115,7 +115,7 @@ $(document).ready(function(){
     // Appende al contenitore della chat il messaggio
     $('.chat-container.active').append(cloneMessage);
     // Scrollo all'ultimo messaggio inviato
-    $('.chat-wrapper').scrollTop($('.chat-wrapper').height());
+    $('.chat-wrapper').scrollTop($('.chat-wrapper').prop('scrollHeight'));
   };
 
   // Funzione per aggiungere zero ad un numero quando è minore di 10
