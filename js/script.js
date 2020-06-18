@@ -56,6 +56,11 @@ $(document).ready(function(){
     $(this).parents('.single-message').siblings().find('.message-action').removeClass('active');
   });
 
+  // Cancellare il messaggio quando clicco su cancella messaggio
+  $(document).on('click', '.delete-message', function(){
+    $(this).parents('.single-message').remove();
+  });
+
   // Funzioni
   // Funzione che invia il messaggio dell'utente nella chat
   function sendMessage() {

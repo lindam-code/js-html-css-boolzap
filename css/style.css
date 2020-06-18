@@ -239,6 +239,9 @@ img {
   list-style-type: none;
   margin: 10px 0;
 }
+.message-action .delete-message:hover {
+  cursor: pointer;
+}
 .template {
   display: none;
 }
