@@ -3,20 +3,13 @@ $(document).ready(function(){
   // Aggiungere messaggi alla chat cliccando icona aeroplanino
   $('#submit-message').click(function(){
     sendMessage();
-    // Invia una risposta dell'interlocutore dopo un secondo
-    setTimeout(function(){
-      sendAnswer();
-  }, 1000);
+
   });
 
   // Aggiungere messaggi alla chat cliccando invio
   $('#message-input').keypress(function(event){
     if (event.which === 13) {
       sendMessage();
-      // Invia una risposta dell'interlocutore dopo un secondo
-      setTimeout(function(){
-        sendAnswer();
-    }, 1000);
     }
   });
 
@@ -71,7 +64,8 @@ $(document).ready(function(){
   });
 
   // Funzioni
-  // Funzione che invia il messaggio dell'utente nella chat
+  // Funzione che invia il messaggio dell'utente nella chat e dopo un secondo
+  // da un messaggio di risposta con scritto ok
   function sendMessage() {
     var message = $('#message-input').val();
     if (message != '') {
@@ -93,6 +87,10 @@ $(document).ready(function(){
       $('.chat-wrapper').scrollTop($('.chat-wrapper').height());
       // Pulisco l'input
       $('#message-input').val('');
+      // Invia una risposta dell'interlocutore dopo un secondo
+      setTimeout(function(){
+        sendAnswer();
+    }, 1000);
     };
   };
 
