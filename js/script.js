@@ -46,6 +46,22 @@ $(document).ready(function(){
     });
   });
 
+  // Rendere visibile la finsetra per cancelleare i messaggi
+  // Quando entro con il mouse nella finestra del messaggio, appare
+  $('.single-message').mouseenter(function () {
+    $(this).children('.message-action').addClass('active');
+    $(this).siblings().children('.message-action').removeClass('active');
+  });
+  // Quando clicco sulla freccia, appare e scompare
+  $('.message-arrow').click(function(){
+    $(this).siblings('.message-action').toggleClass('active');
+  });
+  // Siccome con il mouse enter, la faccio apparire ma rimane visibile
+  // devo farla chiudere in un messaggio se clicco da la freccia
+  // in un altro messaggio
+
+
+
   // Funzioni
   // Funzione che invia il messaggio dell'utente nella chat
   function sendMessage() {

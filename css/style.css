@@ -210,6 +210,35 @@ img {
   background-color: #d5f9ba;
   float: right;
 }
+.single-message .message-arrow {
+  position: absolute;
+  right: 10px;
+  font-size: 15px;
+  color: #b1b1b1;
+  display: none;
+}
+.single-message:hover .message-arrow {
+  display: inline-block;
+}
+.single-message .message-arrow {
+  cursor: pointer;
+}
+.message-action {
+  width: 150px;
+  background-color: white;
+  position: absolute;
+  top: 82%;
+  right: 7px;
+  padding: 10px;
+  display: none;
+}
+.single-message .message-action.active {
+  display: inline-block;
+}
+.message-action ul li {
+  list-style-type: none;
+  margin: 10px 0;
+}
 .template {
   display: none;
 }
