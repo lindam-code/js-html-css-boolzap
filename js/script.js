@@ -78,6 +78,11 @@ $(document).ready(function(){
     var selettoreChatCorrispondente = '.chat-container[data-chat="'+ valoreAttributoContatto +'"]';
     $('.chat-container').removeClass('active');
     $(selettoreChatCorrispondente).addClass('active');
+
+    // Metto sfondo grigio al contatto selezionato
+    $(this).siblings('.contact-item').removeClass('selected');
+    $(this).addClass('selected');
+
     // Mostra nell'header il nome e l'avatar corrispondente
     var contactName = $(this).find('.contact-name').text();
     $('.main .header .contact-name').text(contactName);

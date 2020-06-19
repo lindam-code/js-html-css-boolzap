@@ -169,6 +169,9 @@ img {
 .contact-time {
   color: #b1b1b1;
 }
+.sidebar .contact-list .contact-item.selected {
+  background-color: #e9ebeb;
+}
 /* Fine sidebar contact list */
 /* FINE SIDEBAR */
 
