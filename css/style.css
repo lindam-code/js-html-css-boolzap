@@ -234,6 +234,7 @@ img {
   right: 7px;
   padding: 10px;
   display: none;
+  z-index: 1;
 }
 .single-message .message-action.active {
   display: inline-block;
