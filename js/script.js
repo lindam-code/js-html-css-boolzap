@@ -2,13 +2,31 @@ $(document).ready(function(){
 
   // Aggiungere messaggi alla chat cliccando icona aeroplanino
   $('#submit-message').click(function(){
-    sendMessage();
+    var message = $('#message-input').val();
+    var classSent = 'sent-message';
+    if (message != '') {
+      sendNewMessage(message, classSent);
+      // Invia una risposta dell'interlocutore dopo un secondo
+      setTimeout(function(){
+        var messageAnswer = 'ehiiilaaaa!?';
+        var classReceived = 'received-message';
+        sendNewMessage(messageAnswer, classReceived);
+      }, 1000);
+    };
   });
 
   // Aggiungere messaggi alla chat cliccando invio
   $('#message-input').keypress(function(event){
     if (event.which === 13) {
-      sendMessage();
+      var message = $('#message-input').val();
+      var classSent = 'sent-message';
+      sendNewMessage(message, classSent);
+      // Invia una risposta dell'interlocutore dopo un secondo
+      setTimeout(function(){
+        var messageAnswer = 'ehiiilaaaa!?';
+        var classReceived = 'received-message';
+        sendNewMessage(messageAnswer, classReceived);
+      }, 1000);
     }
   });
 
@@ -67,56 +85,81 @@ $(document).ready(function(){
     $('.main .header .avatar img').attr('src', contactAvatar);
   });
 
-  // Funzioni
-  // Funzione che invia il messaggio dell'utente nella chat e dopo un secondo
-  // da un messaggio di risposta con scritto ok
-  function sendMessage() {
-    var message = $('#message-input').val();
-    if (message != '') {
-      // Clona template messaggio
-      var cloneMessage = $('.template > .single-message').clone();
-      // Aggiunge il testo del messaggio
-      cloneMessage.find('.text-message').append(message);
-      // Aggiunge la classe messaggio inviato
-      cloneMessage.addClass('sent-message');
-      // Inserisce orario del messaggio
-      var date = new Date();
-      var hours = date.getHours();
-      var minutes = date.getMinutes();
-      var currentTime = addZeroToNumber(hours) + ':' + addZeroToNumber(minutes);
-      cloneMessage.find('.time-message').text(currentTime);
-      // Appende al contenitore della chat che è attiva il messaggio
-      $('.chat-container.active').append(cloneMessage);
-      // Scrollo all'ultimo messaggio inviato
-      $('.chat-wrapper').scrollTop($('.chat-wrapper').height());
-      // Pulisco l'input
-      $('#message-input').val('');
-      // Invia una risposta dell'interlocutore dopo un secondo
-      setTimeout(function(){
-        sendAnswer();
-      }, 1000);
-    };
-  };
-
-  // Funzione per inviare la risposta dell'iterlocutore
-  function sendAnswer() {
+  // FUNZIONI
+  // Funzione che appende nella chat un nuovo messaggio
+  // posso usarla sia per i messaggi inviati che per le risposte automatiche
+  // dandogli come argomenti: testo del messaggio e classe da appendere (send o received)
+  function sendNewMessage(messageToSend, classToAppend) {
+    var message = messageToSend;
     // Clona template messaggio
     var cloneMessage = $('.template > .single-message').clone();
     // Aggiunge il testo del messaggio
-    cloneMessage.find('.text-message').append('Ok!');
-    // Aggiunge la classe messaggio ricevuto
-    cloneMessage.addClass('received-message');
+    cloneMessage.find('.text-message').append(message);
+    // Aggiunge la classe messaggio inviato
+    cloneMessage.addClass(classToAppend);
     // Inserisce orario del messaggio
     var date = new Date();
     var hours = date.getHours();
     var minutes = date.getMinutes();
     var currentTime = addZeroToNumber(hours) + ':' + addZeroToNumber(minutes);
     cloneMessage.find('.time-message').text(currentTime);
-    // Appende al contenitore della chat il messaggio
+    // Appende al contenitore della chat che è attiva il messaggio
     $('.chat-container.active').append(cloneMessage);
     // Scrollo all'ultimo messaggio inviato
-    $('.chat-wrapper').scrollTop($('.chat-wrapper').prop('scrollHeight'));
+    $('.chat-wrapper').scrollTop($('.chat-wrapper').height());
+    // Pulisco l'input
+    $('#message-input').val('');
   };
+
+  // Funzione che invia il messaggio dell'utente nella chat e dopo un secondo
+  // da un messaggio di risposta con scritto ok
+  // function sendMessage() {
+  //   var message = $('#message-input').val();
+  //   if (message != '') {
+  //     // Clona template messaggio
+  //     var cloneMessage = $('.template > .single-message').clone();
+  //     // Aggiunge il testo del messaggio
+  //     cloneMessage.find('.text-message').append(message);
+  //     // Aggiunge la classe messaggio inviato
+  //     cloneMessage.addClass('sent-message');
+  //     // Inserisce orario del messaggio
+  //     var date = new Date();
+  //     var hours = date.getHours();
+  //     var minutes = date.getMinutes();
+  //     var currentTime = addZeroToNumber(hours) + ':' + addZeroToNumber(minutes);
+  //     cloneMessage.find('.time-message').text(currentTime);
+  //     // Appende al contenitore della chat che è attiva il messaggio
+  //     $('.chat-container.active').append(cloneMessage);
+  //     // Scrollo all'ultimo messaggio inviato
+  //     $('.chat-wrapper').scrollTop($('.chat-wrapper').height());
+  //     // Pulisco l'input
+  //     $('#message-input').val('');
+  //     // Invia una risposta dell'interlocutore dopo un secondo
+  //     setTimeout(function(){
+  //       sendAnswer();
+  //     }, 1000);
+  //   };
+  // };
+
+  // Funzione per inviare la risposta dell'iterlocutore
+  // function sendAnswer() {
+  //   // Clona template messaggio
+  //   var cloneMessage = $('.template > .single-message').clone();
+  //   // Aggiunge il testo del messaggio
+  //   cloneMessage.find('.text-message').append('Ok!');
+  //   // Aggiunge la classe messaggio ricevuto
+  //   cloneMessage.addClass('received-message');
+  //   // Inserisce orario del messaggio
+  //   var date = new Date();
+  //   var hours = date.getHours();
+  //   var minutes = date.getMinutes();
+  //   var currentTime = addZeroToNumber(hours) + ':' + addZeroToNumber(minutes);
+  //   cloneMessage.find('.time-message').text(currentTime);
+  //   // Appende al contenitore della chat il messaggio
+  //   $('.chat-container.active').append(cloneMessage);
+  //   // Scrollo all'ultimo messaggio inviato
+  //   $('.chat-wrapper').scrollTop($('.chat-wrapper').prop('scrollHeight'));
+  // };
 
   // Funzione per aggiungere zero ad un numero quando è minore di 10
   function addZeroToNumber(number) {
