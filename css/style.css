@@ -148,6 +148,7 @@ img {
   border: 0;
   height: 100%;
   width: calc(100% - 70px);
+  padding-left: 15px;
 }
 /* Fine sidebar sezione ricerca contatto */
 
@@ -278,6 +279,7 @@ img {
   flex-grow: 1;
   height: 100%;
   border: 0;
+  padding-left: 15px;
 }
 /* Inizio sezione type message */
 /* FINE MAIN */

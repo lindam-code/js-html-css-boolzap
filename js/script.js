@@ -32,29 +32,35 @@ $(document).ready(function(){
 
   // Ricerca contatti: digitando le lettere mostro
   // solo i contatti che hanno quelle lettere
-  // $('#search-contact').keyup(function(event){
-  //
-  //   $('.contact-item').each(function () {
-  //     var testoCercato = $('#search-contact').val().toLowerCase();
-  //     console.log(testoCercato);
-  //     var nomeContattoCorrente = $(this).find('.contact-name').text().toLowerCase();
-  //     console.log(nomeContattoCorrente);
-  //
-  //     if (nomeContattoCorrente.includes(testoCercato)) {
-  //       $(this).show();
-  //     } else {
-  //       $(this).hide();
-  //     }
-  //
-  //   });
-
-  // Ricerca contatti con .filter di JQuery.
-  $("#search-contact").on("keyup", function() {
-    var value = $(this).val().toLowerCase();
-    $(".contact-item").filter(function() {
-    $(this).toggle($(this).find('.contact-name').text().toLowerCase().indexOf(value) > -1)
+  $('#search-contact').keyup(function(event){
+    // Per ogni contatto cerco nel nome le lettere digitate dall'utente
+    $('.contact-item').each(function () {
+      var testoCercato = $('#search-contact').val().toLowerCase();
+      console.log(testoCercato);
+      var nomeContattoCorrente = $(this).find('.contact-name').text().toLowerCase();
+      console.log(nomeContattoCorrente);
+      // Mostro solo i contatti che hanno le lettere digitate nel nome
+      // gli altri contatti sono nascosti
+      if (nomeContattoCorrente.includes(testoCercato)) {
+        $(this).show();
+      } else {
+        $(this).hide();
+      }
     });
   });
+
+  // Ricerca contatti con .filter di JQuery.
+  // Associa alla barra di ricerca un evento keyup, cioè ogni volta
+  // che rilascio un tasto/lettera ne registra il valore
+  // $("#search-contact").on("keyup", function() {
+  //   var value = $(this).val().toLowerCase();
+  //   // Con la funzione filter, filtra tra il nome dei contatti, quelli che
+  //   // contengono le lettere scritte nella barra di ricerca e li mostra
+  //   // nascondendo i contatti che nel nome non contengono le lettere digitate
+  //   $(".contact-item").filter(function() {
+  //   $(this).toggle($(this).find('.contact-name').text().toLowerCase().indexOf(value) > -1)
+  //   });
+  // });
 
   // Rendere visibile la finestra per cancelleare i messaggi
   // Quando clicco sulla freccia, appare e scompare
