@@ -149,6 +149,7 @@ img {
   height: 100%;
   width: calc(100% - 70px);
   padding-left: 15px;
+  outline: none;
 }
 /* Fine sidebar sezione ricerca contatto */
 

@@ -96,6 +96,17 @@ $(document).ready(function(){
     $('.main .header .avatar img').attr('src', contactAvatar);
   });
 
+  // Quando l'imput per scrivere un messaggio ha il focus il tasto invia diventa
+  // un aereoplanono di carta, di default è un microfono
+
+  $('.type-message #message-input').focus(function(){
+    $('.type-message #submit-message').removeClass('fa-microphone').addClass('fa-paper-plane');
+  });
+
+  $('.type-message #message-input').blur(function(){
+    $('.type-message #submit-message').removeClass('fa-paper-plane').addClass('fa-microphone');
+  });
+  
   // FUNZIONI
   // Funzione che appende nella chat un nuovo messaggio
   // posso usarla sia per i messaggi inviati che per le risposte automatiche
