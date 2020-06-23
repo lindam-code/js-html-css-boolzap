@@ -168,7 +168,7 @@ img {
   border-bottom: 1px solid #b1b1b1;
   padding: 5px 20px;
 }
-.contact-time {
+.sidebar .contact-list .time-last-message {
   color: #b1b1b1;
 }
 .sidebar .contact-list .contact-item.selected {

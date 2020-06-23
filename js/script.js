@@ -89,15 +89,17 @@ $(document).ready(function(){
     $(this).siblings('.contact-item').removeClass('selected');
     $(this).addClass('selected');
 
-    // Mostra nell'header il nome e l'avatar corrispondente
+    // Mostra nell'header il nome e l'avatar corrispondente e l'orario dell'ultimo messaggio
     var contactName = $(this).find('.contact-name').text();
     $('.main .header .contact-name').text(contactName);
     var contactAvatar = $(this).find('.avatar img').attr('src');
     $('.main .header .avatar img').attr('src', contactAvatar);
+    var timeLastMessage = $(this).find('.time-last-message').text();
+    $('.main .header .time-last-message').text(timeLastMessage);
   });
 
   // Quando l'imput per scrivere un messaggio ha il focus il tasto invia diventa
-  // un aereoplanono di carta, di default è un microfono
+  // un aereoplanino di carta, di default è un microfono
 
   $('.type-message #message-input').focus(function(){
     $('.type-message #submit-message').removeClass('fa-microphone').addClass('fa-paper-plane');
@@ -106,7 +108,7 @@ $(document).ready(function(){
   $('.type-message #message-input').blur(function(){
     $('.type-message #submit-message').removeClass('fa-paper-plane').addClass('fa-microphone');
   });
-  
+
   // FUNZIONI
   // Funzione che appende nella chat un nuovo messaggio
   // posso usarla sia per i messaggi inviati che per le risposte automatiche
@@ -131,6 +133,13 @@ $(document).ready(function(){
     $('.chat-wrapper').scrollTop($('.chat-wrapper').height());
     // Pulisco l'input
     $('#message-input').val('');
+    // Aggiungo l'orario dell'ultimo messaggio nelle info dei contatti
+    // sia nella lista dei contatti che nell'header
+    $('.main .header .time-last-message').text(currentTime);
+    $('.contact-item.selected .time-last-message').text(currentTime);
+    // Aggiungo l'ultimo messaggio ricevuto nelle info dei messaggi
+    $('.contact-item.selected .text-last-message').text(messageToSend);
+
   };
 
   // Funzione che invia il messaggio dell'utente nella chat e dopo un secondo
