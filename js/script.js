@@ -6,12 +6,21 @@ $(document).ready(function(){
     var classSent = 'sent-message';
     if (message != '') {
       sendNewMessage(message, classSent);
-      // Invia una risposta dell'interlocutore dopo un secondo
+
+      // Mentre l'interlocutore "scrive" metto 'sta scrivendo...'' nell'header
+      setTimeout(function(){
+        $('.main .header .chat-activity').text('Sta scrivendo...');
+      }, 500);
+
+      // Invia una risposta dell'interlocutore dopo tre secondi
       setTimeout(function(){
         var messageAnswer = 'ehiiilaaaa!?';
         var classReceived = 'received-message';
         sendNewMessage(messageAnswer, classReceived);
-      }, 1000);
+
+      }, 3000);
+
+
     };
   });
 
@@ -21,14 +30,20 @@ $(document).ready(function(){
       var message = $('#message-input').val();
       var classSent = 'sent-message';
       sendNewMessage(message, classSent);
-      // Invia una risposta dell'interlocutore dopo un secondo
+
+      // Mentre l'interlocutore "scrive" metto 'sta scrivendo...'' nell'header
+      setTimeout(function(){
+        $('.main .header .chat-activity').text('Sta scrivendo...');
+      }, 500);
+      // Invia una risposta dell'interlocutore dopo tre secondi
       setTimeout(function(){
         var messageAnswer = 'ehiiilaaaa!?';
         var classReceived = 'received-message';
         sendNewMessage(messageAnswer, classReceived);
-      }, 1000);
+      }, 3000);
     }
   });
+
 
   // Ricerca contatti: digitando le lettere mostro
   // solo i contatti che hanno quelle lettere
@@ -135,11 +150,10 @@ $(document).ready(function(){
     $('#message-input').val('');
     // Aggiungo l'orario dell'ultimo messaggio nelle info dei contatti
     // sia nella lista dei contatti che nell'header
-    $('.main .header .time-last-message').text(currentTime);
+    $('.main .header .chat-activity').html('Ultimo accesso oggi alle <span class="time-last-message">'+ currentTime + '</span></span>');
     $('.contact-item.selected .time-last-message').text(currentTime);
     // Aggiungo l'ultimo messaggio ricevuto nelle info dei messaggi
     $('.contact-item.selected .text-last-message').text(messageToSend);
-
   };
 
   // Funzione che invia il messaggio dell'utente nella chat e dopo un secondo
